@@ -1,0 +1,16 @@
+let num1 = 50;
+let num2 = 34;
+
+let operation = "+";
+
+switch(operation){
+  case "-":
+    console.log(num1-num2);
+    break;
+  case "*":
+    console.log(num1*num2);
+    break;
+  case "+":
+    console.log(num1+num2);
+    break;
+}
