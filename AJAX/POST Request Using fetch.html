@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POST Request Using fetch()</title>
+</head>
+<body>
+
+  <form id="myForm">
+    <input type="text" name="" id="name" placeholder="Name">
+    <button type="button" onclick="sendData()">
+      Send
+    </button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    function sendData(){
+      const name = document.getElementById('name').value;
+      fetch('https://jsonplaceholder.typicode.com/posts' ,{
+        method:'POST',
+        headers:{'Content-Type' : 'application/json'},
+        body: JSON.stringify({name:name})
+      })
+      .then(response => response.json())
+      .then(data =>{
+        document.getElementById('result').innerHTML = JSON.stringify(data)
+        console.log(data)
+      } )
+      .catch( error => console.error('ERROR',error))
+    }
+  </script>
+</body>
+</html>
